@@ -17,17 +17,27 @@
         <action id="closeAction" type="detail_close"/>
     </actions>
     <layout>
-        <formLayout id="form" dataContainer="customerDc">
-            <textField id="firstNameField" property="firstName"/>
-            <textField id="lastNameField" property="lastName"/>
-            <textField id="emailField" property="email"/>
-            <textField id="addressStreetField" property="address.street"/>
-            <textField id="addressPostCodeField" property="address.postCode"/>
-            <textField id="addressCityField" property="address.city"/>
-            <textField id="addressStateField" property="address.state"/>
-            <textField id="addressCountryField" property="address.country"/>
-        </formLayout>
-        <hbox id="detailActions">
+        <div classNames="grid-panel">
+            <vbox id="personalInformationWrapper" classNames="contrast-panel">
+                <h4 text="msg://personalInformation"/>
+                <formLayout id="form" dataContainer="customerDc">
+                    <textField id="firstNameField" property="firstName"/>
+                    <textField id="lastNameField" property="lastName"/>
+                    <textField id="emailField" property="email"/>
+                </formLayout>
+            </vbox>
+            <vbox id="addressWrapper" classNames="contrast-panel">
+                <h4 text="msg://com.company.orders.entity/Address"/>
+                <formLayout id="addressForm" dataContainer="customerDc">
+                    <textField id="addressStreetField" property="address.street"/>
+                    <textField id="addressPostCodeField" property="address.postCode"/>
+                    <textField id="addressCityField" property="address.city"/>
+                    <textField id="addressStateField" property="address.state"/>
+                    <textField id="addressCountryField" property="address.country"/>
+                </formLayout>
+            </vbox>
+        </div>
+        <hbox id="detailActions" classNames="contrast-panel" padding="true" width="100%">
             <button id="saveAndCloseBtn" action="saveAction"/>
             <button id="closeBtn" action="closeAction"/>
         </hbox>
